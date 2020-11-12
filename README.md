@@ -1,3 +1,6 @@
+인프런 강의 누구든지 하는 리액트를 들으며 공부한 내용입니다 :)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
