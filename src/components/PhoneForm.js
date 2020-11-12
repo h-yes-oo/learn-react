@@ -29,15 +29,16 @@ export default class PhoneForm extends Component {
         return (
             <form onSubmit={this.handleSubmit}>
                 <input 
-                name="name"
-                placeholder="이름"
-                onChange={this.handleChange} 
-                value={this.state.name} />
+                    name="name"
+                    placeholder="이름"
+                    onChange={this.handleChange} 
+                    value={this.state.name} 
+                />
                 <input 
-                name="phone"
-                placeholder="전화번호"
-                onChange={this.handleChange}
-                value={this.state.phone}
+                    name="phone"
+                    placeholder="전화번호"
+                    onChange={this.handleChange}
+                    value={this.state.phone}
                 />
                 <button type="submit">등록</button>
             </form>
