@@ -1,18 +1,19 @@
 import React, { Component } from 'react'
 import PhoneInfo from './PhoneInfo';
 
-export default class PhoneInfoList extends Component {
+class PhoneInfoList extends Component {
     static defaultProps = {
         data: []
     }
 
     render() {
-        const { data, onRemove } = this.props;
+        const { data, onRemove, onUpdate } = this.props;
 
         const list = data.map(
             info => (
             <PhoneInfo 
-                onRemove = {onRemove} 
+                onRemove = {onRemove}
+                onUpdate = {onUpdate}
                 info={info} 
                 key={info.id}
             />
@@ -25,3 +26,5 @@ export default class PhoneInfoList extends Component {
         )
     }
 }
+
+export default PhoneInfoList;
