@@ -9,7 +9,7 @@ export default class App extends Component {
   id = 0;
 
   state = {
-    information: [],
+    information: [ ],
   }
 
   handleCreate = (data) => {
