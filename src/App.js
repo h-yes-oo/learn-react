@@ -10,6 +10,13 @@ export default class App extends Component {
 
   state = {
     information: [ ],
+    keyword: '',
+  }
+
+  handleChange = (e) => {
+    this.setState({
+      keyword: e.target.value,
+    })
   }
 
   handleCreate = (data) => {
@@ -52,7 +59,17 @@ export default class App extends Component {
     return (
       <div>
         <PhoneForm onCreate={this.handleCreate}/>
-        <PhoneInfoList data={this.state.information} onRemove={this.handleRemove} onUpdate = {this.handleUpdate} />
+        <input
+          value = {this.state.keyword}
+          onChange = {this.handleChange}
+          placeholder="searching.."
+          />
+        <PhoneInfoList data={this.state.information.filter(
+          info => info.name.indexOf(this.state.keyword) > -1
+        )} 
+        onRemove={this.handleRemove} 
+        onUpdate = {this.handleUpdate} 
+        />
       </div>
     )
   }
