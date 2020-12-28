@@ -1,7 +1,7 @@
 import React, { useRef, useState, useMemo, useCallback } from 'react';
-import Hello from './Hello';
-import Counter from './Counter';
-import InputSample from './InputSample';
+// import Hello from './Hello';
+// import Counter from './Counter';
+// import InputSample from './InputSample';
 import UserList from './UserList';
 import CreateUser from './CreateUser';
 import './App.css';
@@ -55,7 +55,7 @@ function App() {
       username,
       email
     };
-    setUsers([...users, user]);
+    setUsers(users => users.concat(user));
     setInputs({
       username: '',
       email: ''
