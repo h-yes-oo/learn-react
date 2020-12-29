@@ -13,10 +13,11 @@ function CreateUser({ username, email, onChange, onCreate }){
                 value={username}
             />
             <input
-            name="email"
-            placeholder="이메일"
-            onChange={onChange}
-            value={email}/>
+                name="email"
+                placeholder="이메일"
+                onChange={onChange}
+                value={email}
+            />
             <button onClick={onCreate}>register</button>
         </div>
     );
