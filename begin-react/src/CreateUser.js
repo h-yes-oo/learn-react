@@ -1,9 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
+import { UserDispatch } from './App'
+import useInputs from './hooks/useInputs'
 
-function CreateUser({ username, email, onChange, onCreate }){
+function CreateUser(){
     useEffect(()=>{
         console.log('Rendering Create User');
     })
+    const dispatch = useContext(UserDispatch);
+    const [{ username, email}, onChange, onReset] = useInputs({
+        username:'',
+        email:''
+    });
+    const nextId = useRef(4);
+
     return(
         <div>
             <input 
@@ -18,7 +27,18 @@ function CreateUser({ username, email, onChange, onCreate }){
                 onChange={onChange}
                 value={email}
             />
-            <button onClick={onCreate}>register</button>
+            <button onClick={()=> {
+                dispatch({
+                    type: 'CREATE_USER',
+                    user: {
+                        id:nextId.current,
+                        username,
+                        email
+                    }
+                });
+                onReset();
+                nextId.current += 1;
+            }}>register</button>
         </div>
     );
 }
