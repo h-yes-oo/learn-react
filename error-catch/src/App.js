@@ -1,5 +1,6 @@
 import React from 'react';
 import User from './User';
+import ErrorBoundary from './ErrorBoundary';
 
 function App() {
   const user = {
@@ -7,7 +8,9 @@ function App() {
     username: 'COCO'
   }
   return (
-    <User user={user} />
+    <ErrorBoundary>
+      <User/>
+    </ErrorBoundary>
   );
 }
 
