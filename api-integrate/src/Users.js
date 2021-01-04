@@ -1,4 +1,4 @@
-import React, { useState, useReducer, useEffect } from 'react';
+import React, { useState } from 'react';
 // import axios from 'axios';
 // import useAsync from './useAsync'
 import { useUsersState, useUsersDispatch, getUsers } from './UserContext';

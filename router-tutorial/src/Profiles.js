@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link, Route } from 'react-router-dom';
+import { NavLink, Route } from 'react-router-dom';
 import Profile from './Profile';
 import WithRouterSample from './WithRouterSample';
+import RouterHookSample from './RouterHookSample';
 
 const Profiles = () => {
     return (
@@ -9,10 +10,20 @@ const Profiles = () => {
             <h3>User List:</h3>
             <ul>
                 <li>
-                    <Link to="/profiles/hyesoo">hyesoo</Link>
+                    <NavLink
+                        to="/profiles/hyesoo"
+                        activeStyle={{ background: 'black', color:'white'}}
+                    >
+                        hyesoo
+                    </NavLink>
                 </li>
                 <li>
-                    <Link to="/profiles/coco">coco</Link>
+                    <NavLink
+                        to="/profiles/coco"
+                        activeStyle={{ background: 'black', color: 'white' }}
+                    >
+                        coco
+                    </NavLink>
                 </li>
             </ul>
 
@@ -23,6 +34,7 @@ const Profiles = () => {
             />
             <Route path="/profiles/:username" component={Profile} />
             <WithRouterSample />
+            <RouterHookSample />
         </div>
     );
 };
