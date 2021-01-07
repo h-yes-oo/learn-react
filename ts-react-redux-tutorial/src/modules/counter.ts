@@ -4,22 +4,11 @@ import {
     createReducer
 } from 'typesafe-actions'
 
-// export const addTodo = createAction(ADD_TODO, (text: string) => ({
-//     id: nextId++,
-//     text: text,
-//   }))<Todo>();
-  
-
-const INCREASE = 'counter/INCREASE';
-const DECREASE = 'counter/DECREASE';
-const INCREASE_BY = 'counter/INCREASE_BY';
-
-export const increase = createAction(INCREASE)();
-export const decrease = createAction(DECREASE)();
-export const increaseBy = createAction(INCREASE_BY)<number>();
+export const increase = createAction('counter/INCREASE')();
+export const decrease = createAction('counter/DECREASE')();
+export const increaseBy = createAction('counter/INCREASE_BY')<number>();
 
 const actions = { increase, decrease, increaseBy };
-
 type CounterAction = ActionType<typeof actions>;
 
 type CounterState = {
@@ -30,10 +19,11 @@ const initialState: CounterState = {
     count: 0
 };
 
-const counter = createReducer<CounterState, CounterAction>(initialState, {
-    [INCREASE]: state => ({ count: state.count + 1 }),
-    [DECREASE]: state => ({ count: state.count - 1 }),
-    [INCREASE_BY]: (state, action) => ({ count: state.count + action.payload })
-});
+const counter = createReducer<CounterState, CounterAction>(initialState)
+    .handleAction(increase, state => ({ count: state.count + 1 }))
+    .handleAction(decrease, state => ({ count: state.count - 1 }))
+    .handleAction(increaseBy, (state, action) => ({ 
+        count: state.count + action.payload 
+    }));
 
 export default counter;
