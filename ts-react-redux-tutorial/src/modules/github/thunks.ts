@@ -7,7 +7,7 @@ import { getUserProfileAsync } from './actions';
 export function getUserProfileThunk(username: string): ThunkAction<void, RootState, null, GithubAction> {
     return async dispatch => {
         const { request, success, failure } = getUserProfileAsync;
-        dispatch(request());
+        // dispatch(request());
         try {
             const userProfile = await getUserProfile(username);
             dispatch(success(userProfile));
